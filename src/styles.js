@@ -27,7 +27,7 @@ export const Button = styled.button`
 export const Title = styled.h1`
     font-size: 2rem;
 `
-export const Lyrics = styled.div`
+
+export const Lyrics = styled.pre`
     margin-top: 1rem;
-    max-width: 
 `

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Wrapper, Input, Button, Title, Lyrics } from './styles';
+import {Wrapper, Input, Button, Title, Lyrics} from './styles';
 import axios from "axios";
 
 function App() {
@@ -13,17 +13,11 @@ function App() {
 
   const getLyrics = async ({artist, music}) => {
     const {data} = await api.get(`/${artist}/${music}`);
-    
-    data.lyrics.split("\n").map(function(item) { 
-      console.log(item);
-    })
-    
     return data.lyrics;
   }
 
   const handleOnSearch = async () => {
     const lyrics =  await getLyrics({artist: artistInput.current.value, music: musicInput.current.value});
-
     setLyric(lyrics);
     return lyrics;
   }
