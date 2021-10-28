@@ -9,7 +9,7 @@ function App() {
   const musicInput = createRef();
   const [lyricsArea, setLyric] = useState('Search for your favorite lyric!');
 
-  const steps = ['First, write the song name', 'And the artist', 'Lyrics'];
+  const steps = ['First, write the song name', 'And the artist', 'Here is the lyrics'];
   const [activeStep, setActiveStep] = useState(0);
   const [musicValue, setMusicValue] = useState('');
 
@@ -25,6 +25,7 @@ function App() {
   const handleOnSearch = async () => {
     const lyrics =  await getLyrics({music: musicValue, artist: artistInput.current.value});
     setLyric(lyrics);
+    setActiveStep(activeStep + 1)
     return lyrics;
   }
 
@@ -56,6 +57,8 @@ function App() {
           <Button type="submit" onClick={handleOnSearch}>Search</Button>
         </div>
       }
+
+      <hr/>
 
       <Lyrics>{lyricsArea}</Lyrics>
 
