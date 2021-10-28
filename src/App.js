@@ -34,10 +34,21 @@ function App() {
     setActiveStep(activeStep + 1);
     return musicValue;
   }
+
+  const handleBackStep = () => {
+    setActiveStep(0);
+    setLyric('Search for your favorite lyric!');
+  }
   
   return (
     <Wrapper>
       <Title>Lyric Search</Title>
+
+      {activeStep === 2 &&
+        <div>
+          <Button onClick={handleBackStep}>Restart</Button>
+        </div>
+      }
 
       <div className="steps">
         {steps[activeStep]}
