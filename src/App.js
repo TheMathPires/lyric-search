@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
-import {Wrapper, Input, Button, Title, Lyrics} from './styles';
+import React, {useState, createRef} from 'react';
+import {Wrapper, Button, Title, Lyrics} from './styles';
 import axios from "axios";
+import ArtistInput from './components/ArtistInput';
+import MusicInput from './components/MusicInput';
 
 function App() {
-  const artistInput = React.createRef();
-  const musicInput = React.createRef();
+  const artistInput = createRef();
+  const musicInput = createRef();
   const [lyricsArea, setLyric] = useState('Search for your favorite lyric!');
 
   const api = axios.create ({
@@ -25,9 +27,8 @@ function App() {
   return (
     <Wrapper>
       <Title>Lyric Search</Title>
-      <Input type="text" placeholder="Artist" ref={artistInput}/>
-      <Input type="text" placeholder="Music" ref={musicInput}/> 
-      <br/><br/>
+      <ArtistInput artist={artistInput}/>
+      <MusicInput music={musicInput}/> 
       <Button type="submit" onClick={handleOnSearch}>Search</Button>
       <hr/>
       <Lyrics>{lyricsArea}</Lyrics>

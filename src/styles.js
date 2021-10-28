@@ -10,13 +10,14 @@ export const Input = styled.input`
     margin-right: 1rem;
     padding: .5rem;
     border-radius: 6px;
+    margin-top: .5rem;
 `
 
 export const Button = styled.button`
     padding: .5rem;
     border-radius: 6px;
     width: 150px;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
     &:hover {
         cursor: pointer;
         color: #fff;
