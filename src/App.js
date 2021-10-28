@@ -9,6 +9,10 @@ function App() {
   const musicInput = createRef();
   const [lyricsArea, setLyric] = useState('Search for your favorite lyric!');
 
+  const steps = ['First, write the song name', 'And the artist', 'Lyrics'];
+  const [activeStep, setActiveStep] = useState(0);
+  const [musicValue, setMusicValue] = useState('');
+
   const api = axios.create ({
     baseURL: 'https://api.lyrics.ovh/v1'
   })
@@ -19,19 +23,42 @@ function App() {
   }
 
   const handleOnSearch = async () => {
-    const lyrics =  await getLyrics({artist: artistInput.current.value, music: musicInput.current.value});
+    const lyrics =  await getLyrics({music: musicValue, artist: artistInput.current.value});
     setLyric(lyrics);
     return lyrics;
+  }
+
+  const handleNextStep = () => {
+    setMusicValue(musicInput.current.value);
+    setActiveStep(activeStep + 1);
+    return musicValue;
   }
   
   return (
     <Wrapper>
       <Title>Lyric Search</Title>
-      <ArtistInput artist={artistInput}/>
-      <MusicInput music={musicInput}/> 
-      <Button type="submit" onClick={handleOnSearch}>Search</Button>
-      <hr/>
+
+      <div className="steps">
+        {steps[activeStep]}
+      </div>
+
+      {activeStep === 0 &&
+        <div>
+          <MusicInput music={musicInput}/> 
+          <Button onClick={handleNextStep}>Next</Button>
+        </div>
+      }
+
+
+      {activeStep === 1 &&
+        <div>
+          <ArtistInput artist={artistInput}/>
+          <Button type="submit" onClick={handleOnSearch}>Search</Button>
+        </div>
+      }
+
       <Lyrics>{lyricsArea}</Lyrics>
+
     </Wrapper>
   );
 }
