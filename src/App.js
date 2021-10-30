@@ -18,8 +18,13 @@ function App() {
   })
 
   const getLyrics = async ({artist, music}) => {
-    const {data} = await api.get(`/${artist}/${music}`);
-    return data.lyrics;
+    try {
+      const {data} = await api.get(`/${artist}/${music}`);
+      return data.lyrics;
+    }
+    catch(error) {
+      console.log(error)
+    }
   }
 
   const handleOnSearch = async () => {
@@ -71,7 +76,9 @@ function App() {
 
       <hr/>
 
+      
       <Lyrics>{lyricsArea}</Lyrics>
+      
 
     </Wrapper>
   );
