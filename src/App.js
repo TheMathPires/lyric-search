@@ -23,15 +23,21 @@ function App() {
       return data.lyrics;
     }
     catch(error) {
-      console.log(error)
+      console.log(error);
     }
   }
 
   const handleOnSearch = async () => {
     const lyrics =  await getLyrics({music: musicValue, artist: artistInput.current.value});
-    setLyric(lyrics);
+
+    if (lyrics) {
+      setLyric(lyrics);
+      return lyrics;
+    } else {
+      setLyric('Lyrics not found :(');
+    }
+
     setActiveStep(activeStep + 1)
-    return lyrics;
   }
 
   const handleNextStep = () => {
