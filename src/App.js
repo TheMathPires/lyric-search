@@ -29,6 +29,7 @@ function App() {
 
   const handleOnSearch = async () => {
     const lyrics =  await getLyrics({music: musicValue, artist: artistInput.current.value});
+    setActiveStep(activeStep + 1)
 
     if (lyrics) {
       setLyric(lyrics);
@@ -36,8 +37,6 @@ function App() {
     } else {
       setLyric('Lyrics not found :(');
     }
-
-    setActiveStep(activeStep + 1)
   }
 
   const handleNextStep = () => {
