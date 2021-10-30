@@ -12,6 +12,7 @@ function App() {
   const steps = ['First, write the song name', 'And the artist', 'Here is the lyrics'];
   const [activeStep, setActiveStep] = useState(0);
   const [musicValue, setMusicValue] = useState('');
+  const [isLoading, setLoading] = useState(false);
 
   const api = axios.create ({
     baseURL: 'https://api.lyrics.ovh/v1'
@@ -28,13 +29,17 @@ function App() {
   }
 
   const handleOnSearch = async () => {
+    setLoading(true);
+    setActiveStep(activeStep + 1);
+
     const lyrics =  await getLyrics({music: musicValue, artist: artistInput.current.value});
-    setActiveStep(activeStep + 1)
 
     if (lyrics) {
+      setLoading(false);
       setLyric(lyrics);
       return lyrics;
     } else {
+      setLoading(false);
       setLyric('Lyrics not found :(');
     }
   }
@@ -81,10 +86,12 @@ function App() {
 
       <hr/>
 
-      
+      {isLoading &&
+        <p>Loading...</p>
+      }
+
       <Lyrics>{lyricsArea}</Lyrics>
       
-
     </Wrapper>
   );
 }
