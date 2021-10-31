@@ -6,7 +6,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/Toshiuk/bips-front">
-    <img height="auto" width="90%' align="center" src="./src/assets/lyrich-search.gif" />
+    <img height="auto" width="50%' align="center" src="./src/assets/lyrich-search.gif" />
    </a>
    <br/>
   <em align="center">
