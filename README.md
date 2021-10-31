@@ -10,7 +10,7 @@
    </a>
    <br/>
   <em align="center">
-      "Music affects us subliminally not only through melody but also through the imagery and language portrayed in lyrics.”
+      "Music affects us subliminally not only through melody but also <br/>through the imagery and language portrayed in lyrics.”
     <br />
     <br />
     <a href="#" target="_blank">View Demo</a>
