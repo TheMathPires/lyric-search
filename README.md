@@ -6,15 +6,16 @@
 <br />
 <p align="center">
   <a href="https://github.com/Toshiuk/bips-front">
-    <img height="auto" width="100' align="center" src="./src/assets/lyrich-search.gif" />
+    <img height="auto" width="90%' align="center" src="./src/assets/lyrich-search.gif" />
    </a>
-  <p align="center">
+   <br/>
+  <em align="center">
       "Music affects us subliminally not only through melody but also through the imagery and language portrayed in lyrics.”
     <br />
     <br />
     <a href="#" target="_blank">View Demo</a>
   </p>
-</p>
+</em>
 
 <!-- TABLE OF CONTENTS -->
 
