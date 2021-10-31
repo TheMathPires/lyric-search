@@ -9,6 +9,7 @@
     <img height="auto" width="50%' align="center" src="./src/assets/lyrich-search.gif" />
    </a>
    <br/>
+   <br/>
   <em align="center">
       "Music affects us subliminally not only through melody but also <br/>through the imagery and language portrayed in lyrics.”
     <br />
